@@ -1,12 +1,12 @@
 ---
 page_type: sample
 languages:
-- csharp
+- java
 products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+- Azure Cosmos Cassandra 
+description: "Java Spring boot reference sample to show usage of CosmosDB Cassandra counters using spring-boot-starter-data-cassandra"
 ---
+
 
 # Official Microsoft Sample
 
@@ -39,15 +39,35 @@ Outline the required components and tools that a user might need to have on thei
 
 ## Setup
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+## Steps to run the App
+git clone https://github.com/Azure-Samples/azure-springboot-cosmosdb-cassandra-counter.git </br>  
+cd azure-springboot-cosmosdb-cassandra-counter </br>  
+mvn clean install  </br>  
+mvn clean spring-boot:run  </br>  
 
-## Runnning the sample
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+## Running the sample
+
+## Steps to test
+### GET all records </br>  
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/coupons </br>  
+
+## POST new record  </br>  
+curl -X POST -H "Content-Type: application/json" -d '{"name" : "microsoft3","user" : "jr3"}' http://localhost:8080/coupons </br>  
+## POST counter record  </br>  
+curl -X POST -H "Content-Type: application/json" -d '{"id": "ec514720-ae7f-11e9-9caf-1bd76ed297da","name" : "microsoft3","user" : "jr3"}' http://localhost:8080/coupons </br>  
 
 ## Key concepts
 
 Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+
+### Cassandra Counters 
+A counter is a special column used to store an integer that is changed in increments.
+Counters are useful for many data models. Some examples:
+
+1) To keep track of the number of web page views received on a company website
+2) To keep track of the number of games played online or the number of players who have joined an online game
+
 
 ## Contributing
 
